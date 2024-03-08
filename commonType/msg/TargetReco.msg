@@ -1,0 +1,14 @@
+time ControlStamp    #接受到控制信息的时间戳
+time ImageStamp      #图像时间戳
+time TargetStamp     #图像识别时间戳
+int8 ObjectID       #识别物体ID
+float32 sizeX    #大小
+float32 sizeY    #大小
+float32 x       #x坐标
+float32 y       #y坐标
+float32 z       #z坐标
+float32 roll    #roll
+float32 pitch   #pitch
+float32 yaw     #yaw
+int8 recognition_status     #识别结果，0（失败）、1（成功）、-1（超时间）
+float32 mistake #识别误差

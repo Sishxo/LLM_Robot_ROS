@@ -1,0 +1,7 @@
+<launch>
+
+   <node name="target_recognition_node" pkg="target_recognition" type="target_reognition" output="screen">
+        <rosparam file="$(find target_recognition)/config/config.yaml" command="load"/>
+   </node>
+
+</launch>

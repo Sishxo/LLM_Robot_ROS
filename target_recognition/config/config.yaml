@@ -1,0 +1,34 @@
+#摄像头参数
+Rostopic:
+ #rgb图像的rostopic
+ Rgb_Image_Topic : /camera/color/image_raw
+ #深度图像的rostopic
+ Depth_Image_Topic : /camera/depth/image_rect_raw
+ #机械臂控制的rostopic
+ Xarm_Control_Topic : /xarm/XarmControl
+ #机械臂状态的rostopic
+ Xarm_Status_Topic : /xarm/XarmControlStatus
+ #机械臂识别的rostopic
+ Xarm_Recognition_Topic : /xarm/XarmTargetRec
+ #机械臂发送出的请求图像检测topic
+ Xarm_GetRecognition_Topic : /xarm/GetTargetRec
+
+#ros配置
+Rosconfig:
+ #ros频率
+ ROS_Frequency : 100
+ #rgb图像和深度图像信息同步时间
+ Rgb_Depth_Delt_Time : 10
+
+#算法
+Algorithm:
+ #算法使用的id,00,10,20,30表示使用cpp，01,11,21,31表示使用python
+ Algorithm_ID : 01
+ #当id为python时，需要配置python信息
+ #python信息
+ Python_Module : algorithm
+ Python_Class_Name : Algorithm
+
+ErrorDet:
+  #摄像头检测判断时间ms
+ ImageDevice : 5000

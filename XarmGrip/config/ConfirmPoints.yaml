@@ -1,0 +1,74 @@
+A:
+  size: 0
+  point0:
+    x: 0.014682
+    y: 0.084074
+    z: 0.381555
+    roll: 0.000000
+    pitch: 0.000000
+    yaw: 0.000000
+  point1:
+    x: 0.015230
+    y: 0.083240
+    z: 0.380637
+    roll: 0.000000
+    pitch: 0.000000
+    yaw: 0.000000
+  point2:
+    x: 1
+    y: 1
+    z: 1
+    roll: 1
+    pitch: 1
+    yaw: 1
+  point3:
+    x: 1
+    y: 1
+    z: 1
+    roll: 1
+    pitch: 1
+    yaw: 1
+  point4:
+    x: 1
+    y: 1
+    z: 1
+    roll: 1
+    pitch: 1
+    yaw: 1
+B:
+  size: 3
+  point0:
+    x: 0.520120
+    y: -0.393842
+    z: 0.377833
+    roll: 0.000000
+    pitch: 0.000000
+    yaw: 0.000000
+  point1:
+    x: 0.432856
+    y: -0.470175
+    z: 0.376979
+    roll: 0.000000
+    pitch: 0.000000
+    yaw: 0.000000
+  point2:
+    x: 0.392949
+    y: -0.511001
+    z: 0.377215
+    roll: 0.000000
+    pitch: 0.000000
+    yaw: 0.000000
+  point3:
+    x: 1
+    y: 1
+    z: 1
+    roll: 1
+    pitch: 1
+    yaw: 1
+  point4:
+    x: 1
+    y: 1
+    z: 1
+    roll: 1
+    pitch: 1
+    yaw: 1

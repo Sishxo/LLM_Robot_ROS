@@ -1,0 +1,7 @@
+<launch>
+
+   <node name="xarm6Grip_node" pkg="XarmGrip" type="XarmGrip" output="screen" respawn="true" respawn_delay="10">
+        <rosparam file="$(find XarmGrip)/config/config.yaml" command="load"/>
+   </node>
+   
+</launch>

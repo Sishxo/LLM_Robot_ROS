@@ -1,0 +1,75 @@
+#摄像头参数
+Rostopic:
+ #机械臂状态回馈topic
+ xarm6LcationStatus_topic : /xarm/xarm_states
+ #目标检测回馈topic
+ xarm6TargetRecognition_topic : /xarm/XarmTargetRec
+ #机械臂控制发送话题
+ xarm6Control_topic : /xarm/XarmControlStatus
+ #机械臂关节使能服务名称
+ SetAxisServerName : /xarm/motion_ctrl
+ #机械臂控制模式服务名称
+ SetModeServerName : /xarm/set_mode
+ #机械臂状态服务名称
+ SetStateServerName : /xarm/set_state
+ #机械臂控制服务名称
+ SetMoveLineServerName : /xarm/move_line
+ #机械爪控制服务名称
+ SetGripperMoveServerName : /xarm/gripper_move
+ #机械爪速度控制服务名称
+ SetGripperConfigServerName : /xarm/gripper_config
+ #机械爪位置获取服务名称
+ SetGripperStateServerName : /xarm/gripper_state
+ #机械臂清除异常的名称
+ SetClearXarmErrorName : /xarm/clear_err
+ #机械臂角度控制的名字
+ SetXarm6ControlServerName : /xarm/move_joint
+ #机械臂控制请求目标检测的名字
+ RosPubGetTargetTopic : /xarm/GetTargetRec
+ #接受来自客户端的控制请求topic
+ Sub_Control_Topic : /xarm/xarmClientControl
+ #ros频率
+ RosFrequency : 100
+
+#机械臂和机械爪配置
+XarmGripConfig:
+ #机械臂模式地卡尔坐标系控制
+ XarmControlModel : 0
+ #机械臂模式角度控制
+ XarmRotateModel : 6
+ #机械臂状态控制
+ XarmState : 0
+ #机械爪速度控制
+ GripperConfig : 1500
+ Grip_open : 850
+ Grip_close : 0
+
+#机械臂控制配置
+XarmControlConfig:
+ #机械臂初始位置坐标
+ HomeX : 200    #mm
+ HomeY : 0      #mm
+ HomeZ : 400    #mm
+ HomeRoll : 3.1415926
+ HomePitch : -1.5707
+ HomeYaw : 0
+ #控制模式下配置信息
+ Controlmvvelo : 100
+ Controlmvacc : 1000
+ Controlmvtime : 0
+ Controlmvradii : 0
+ #旋转模式下配置信息
+ Rotatemvvelo : 0.1
+ Rotatemvacc : 7
+ Rotatemvtime : 0
+ Rotatemvradii : 0
+ #机械臂旋转误差角度
+ XarmRotateMistakeAngle : 1
+ #机械臂旋转单位角度
+ XarmRotateDeltAngle : 30
+ #机械臂旋转休眠等待时间ms
+ #XarmRotateSleepTime : 100
+ #机械臂控制误差m
+ XarmControlMistake : 0.01
+ #目标检测超时时间
+ OverTime : 10

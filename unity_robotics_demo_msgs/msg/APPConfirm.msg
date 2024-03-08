@@ -1,0 +1,12 @@
+bool Start
+bool Add
+uint8 ConfirmPos
+float32 x
+float32 y
+float32 z
+float32 roll
+float32 pitch
+float32 yaw
+uint8 A_size
+uint8 B_size
+bool clear

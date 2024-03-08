@@ -1,0 +1,7 @@
+<launch>
+   <include file="$(find target_recognition)/launch/runDevice.launch">
+   </include>
+
+   <include file="$(find ros_tcp_endpoint)/launch/endpoint.launch">
+   </include>
+</launch>
