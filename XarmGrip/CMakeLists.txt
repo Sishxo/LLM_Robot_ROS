@@ -242,7 +242,7 @@ set(TARGET_SOURCE_FILES
   ${PROJECT_SOURCE_DIR}/src/ParmControl/ConfirmPoint.cpp
 )
 
-add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/yaml-cpp)
+# add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/yaml-cpp)
 
 set(CONFIRM_POINTS ${PROJECT_SOURCE_DIR}/config/ConfirmPoints.yaml)
 configure_file(${PROJECT_SOURCE_DIR}/config/ConfirmYaml.h.in ${PROJECT_SOURCE_DIR}/ParmControl/ConfirmYaml.h)

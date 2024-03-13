@@ -10,7 +10,7 @@ import sys
 import time
 import numpy as np
 
-from attn_and_long_ctx_patches import apply_attention_patch
+from .attn_and_long_ctx_patches import apply_attention_patch
 apply_attention_patch(use_memory_efficient_attention=True)
 
 

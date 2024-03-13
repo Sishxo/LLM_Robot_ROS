@@ -145,8 +145,6 @@ include_directories(
   ${PROJECT_SOURCE_DIR}/core/algorithm3/py
   ${PROJECT_SOURCE_DIR}/src
 
-  ${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/darknet
-
 ) 
 
 ## Declare a C++ library
@@ -236,16 +234,6 @@ include_directories(
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/thirdparty/pybind11)
 
-set( DARKNET_PATH 
- ${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/darknet
-)
-
-set( DARKNET_FILE 
- ${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/darknet/darknet_alg.cpp
-)
-
-include_directories(${DARKNET_PATH}) 
-
 set(TARGET_SOURCE_FILES
   ${PROJECT_SOURCE_DIR}/src/main_target_reognition.cpp
   ${PROJECT_SOURCE_DIR}/src/target_recognition.cpp
@@ -267,20 +255,16 @@ set(ALGORITHM_PY3 ${PROJECT_SOURCE_DIR}/core/algorithm3/py/)
 set(ALGORITHM_PY1_CFG ${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/)
 
 configure_file(${PROJECT_SOURCE_DIR}/py.h.in ${PROJECT_SOURCE_DIR}/src/py.h)
-configure_file(${ALGORITHM_PY1_CFG}/cfg/cfg.h.in ${ALGORITHM_PY1_CFG}/cfg.h)
 
 add_executable(target_reognition
   ${TARGET_SOURCE_FILES} 
-  ${DARKNET_FILE}
 )
 # 包含静态库路径
 link_directories(${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/lib)
-link_libraries(libdarknet.a)
 
 add_dependencies(target_reognition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(target_reognition
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
-  ${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/lib/libdarknet.so
   pybind11::embed
 )
