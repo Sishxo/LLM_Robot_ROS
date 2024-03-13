@@ -2,3 +2,4 @@ target_recognition/core/algorithm0/*
 .vscode/*
 .rosinstall
 .rosinstall.bak
+target_recognition/core/algorithm1/cpp/cfg/*

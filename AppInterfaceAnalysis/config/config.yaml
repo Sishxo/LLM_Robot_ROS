@@ -1,0 +1,5 @@
+Rostopic:
+ APP_LLM_topic : APP_LLM_topic
+ ROBOT_CONTROL_topic : RobotControl_topic
+ APP_LLM_Algo_topic : APP_LLM_Algo_topic
+ rosloop_rate : 100

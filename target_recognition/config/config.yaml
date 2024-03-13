@@ -23,7 +23,7 @@ Rosconfig:
 #算法
 Algorithm:
  #算法使用的id,00,10,20,30表示使用cpp，01,11,21,31表示使用python
- Algorithm_ID : 01
+ Algorithm_ID : 21
  #当id为python时，需要配置python信息
  #python信息
  Python_Module : algorithm

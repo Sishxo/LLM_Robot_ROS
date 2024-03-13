@@ -21,19 +21,33 @@ public:
     void Init();
     /// @brief 开始
     void Start();
-
+    /// @brief 结束
+    void End();
 public:
     /// @brief 获取ros node
     /// @return Node_
     ros::NodeHandle getNodeHandle();
+    /// @brief 向大模型算法服务发送请求，获取模型处理结果
+    /// @param msg 请求内容
+    /// @param data 结果
+    /// @return true表示成功，false表示失败
+    bool LLM_Algo_Service(std::string msg, struct LLM_str &data);
     
 private:
     ros::NodeHandle Node_;
-    ros::Subscriber SubAPPLLM_;
+    //APP发送的大模型请求服务
+    ros::ServiceServer serviceLLM_ ;
+    //发送机器人控制
+    ros::Publisher  PubRobotControlMessage_;
+    //llm算法服务
+    ros::ServiceClient serviceLLM_Algo_;
 
 private:
-    /// @brief APP获取到的原始数据流
-    void APPLLMCallback(const std_msgs::StringConstPtr& LLm_msg);
+    /// @brief APP发送的大模型请求服务回调函数
+    /// @param req 请求命令
+    /// @param res 回馈命令
+    /// @return 成功返回true，失败返回false
+    bool APPServiceLLMCallback(commonType::APP_LLM::Request& req, commonType::APP_LLM::Response& res);
 
 };
 

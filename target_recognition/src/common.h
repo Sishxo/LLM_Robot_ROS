@@ -18,14 +18,14 @@ namespace Target_Recognition
             float roll;
             float pitch;
             float yaw;
-            /// @brief 大小
+            /// @brief 物体大小
             float sizeX;
             float sizeY;
             /// @brief 识别状态
             int recognition_status;
             /// @brief 误差
             float mistake;
-            /// @brief 识别物体ID
+            /// @brief 识别物体ID 
             float ObjectID;
     };
 

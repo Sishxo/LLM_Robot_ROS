@@ -16,7 +16,7 @@ namespace Target_Recognition
         //参数加载
         Param rosParam = ROS_Target_Recognition::LoadPararms();
 
-        ROS_INFO("当目标检测算法开始...............");
+        ROS_INFO("当前目标检测算法开始...............");
 
         // 算法初始化
         Algorithm_ = ROS_Target_Recognition::loadAlgorithm(rosParam);
@@ -92,13 +92,13 @@ namespace Target_Recognition
             loop_rate.sleep();
             
             //异常检测
-            // if(errorDetection() == XarmErrorState_ERROR)
-            // {
-            //     ROS_INFO("摄像头设备异常");
-            //     break;
-            // }
+            if(errorDetection() == XarmErrorState_ERROR)
+            {
+                ROS_INFO("摄像头设备异常");
+                break;
+            }
             //判断控制状态
-            if(xarmStatusDete() == XarmControlState_REJECT) continue;
+            // if(xarmStatusDete() == XarmControlState_REJECT) continue;
             ROS_INFO("接收到目标检测请求");
             //获取机械臂识别物体的ID
             int ObjectID = getXarmObjectID();
@@ -344,7 +344,7 @@ Image_Mutex_.unlock();
         out.ROS_Frequency = getParam<int>("/target_recognition_node/Rosconfig/ROS_Frequency",100);
         out.Rgb_Depth_Delt_Time = getParam<int>("/target_recognition_node/Rosconfig/Rgb_Depth_Delt_Time",10);
 
-        out.Algorithm_ID = getParam<int>("/target_recognition_node/Algorithm/Algorithm_ID",00);
+        out.Algorithm_ID = getParam<int>("/target_recognition_node/Algorithm/Algorithm_ID",21);
         out.ImageDevice = getParam<int>("/target_recognition_node/ErrorDet/ImageDevice",3);
 
         out.Python_Module = getParam<std::string>("/target_recognition_node/Algorithm/Python_Module",
@@ -361,7 +361,7 @@ Image_Mutex_.unlock();
     Image_Algorithm* ROS_Target_Recognition::loadAlgorithm(Param param)
     {
         Image_Algorithm *tempAlgorithm_ ;
-    
+        
         switch(param.Algorithm_ID)
         {
             case 00: {

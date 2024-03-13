@@ -1,0 +1,10 @@
+# configure the tool modbus communication baud rate, in bps:
+int32 confirm_ID
+
+# configure the timeout parameter in modbus communication, in milliseconds
+string message
+
+---
+
+string message
+int16 ret

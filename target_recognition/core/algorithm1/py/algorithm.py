@@ -5,7 +5,7 @@ class Algorithm:
     __name = "Algorithm"
 
     def Name(self):
-        name = "algorithm-py0"
+        name = "algorithm-py1"
         return name
 
     def Init(self):

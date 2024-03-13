@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="AppInterfaceAnalysis" type="main_AppAnalysis.py" name="AppAnalysis_node" output="screen"/>
+</launch>

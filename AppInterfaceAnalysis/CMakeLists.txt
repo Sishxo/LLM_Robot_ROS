@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   tf2_ros
   xarm_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -62,12 +63,11 @@ find_package(catkin REQUIRED COMPONENTS
 #   Message2.msg
 # )
 
-## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+# Generate services in the 'srv' folder
+add_service_files(
+  FILES
+  APP_LLM.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -116,6 +116,7 @@ catkin_package(
 #  LIBRARIES AppInterfaceAnalysis
 #  CATKIN_DEPENDS commonType cv_bridge geometry_msgs image_transport message_filters roscpp rospy sensor_msgs std_msgs tf tf2_ros xarm_msgs
 #  DEPENDS system_lib
+ CATKIN_DEPENDS message_runtime
 )
 
 ###########
@@ -225,10 +226,10 @@ include_directories(
 set(AppInterface_SOURCE
   ${PROJECT_SOURCE_DIR}/src
   ${PROJECT_SOURCE_DIR}/src/AppInterface
-  ${PROJECT_SOURCE_DIR}/src/AppInterface/Algorithm
   ${PROJECT_SOURCE_DIR}/src/AppInterface/APP
   ${PROJECT_SOURCE_DIR}/src/AppInterface/InterfaceAnalysis
   ${PROJECT_SOURCE_DIR}/src/AppInterface/ROSControl
+  ${PROJECT_SOURCE_DIR}/src/AppInterface/YamlConfig
 )
 
 #调用文件
@@ -236,10 +237,10 @@ set(AppInterface_SOURCE_FILES
   #主函数
   ${PROJECT_SOURCE_DIR}/src/main_AppInterface.cpp
   #调用文件
-  ${PROJECT_SOURCE_DIR}/src/AppInterface/Algorithm/Algorithm.cpp
   ${PROJECT_SOURCE_DIR}/src/AppInterface/APP/APP.cpp
   ${PROJECT_SOURCE_DIR}/src/AppInterface/InterfaceAnalysis/InterfaceAnalysis.cpp
   ${PROJECT_SOURCE_DIR}/src/AppInterface/ROSControl/ROSControl.cpp
+  ${PROJECT_SOURCE_DIR}/src/AppInterface/YamlConfig/YamlConfig.cpp
 )
 
 include_directories(

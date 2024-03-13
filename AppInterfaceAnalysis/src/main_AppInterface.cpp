@@ -11,12 +11,15 @@ int main(int argc, char** argv)
     
     ros::Time::init();
 
-    InterfaceAnalysis::Instance().Init();
+    InterfaceAnalysis *appInterAna 
+    =  new InterfaceAnalysis();
 
-    InterfaceAnalysis::Instance().Start();
+    appInterAna->Init();
 
-    InterfaceAnalysis::Instance().DoFunction();
+    appInterAna->Start();
 
-    InterfaceAnalysis::Instance().End();
+    appInterAna->End();
+
+    delete(appInterAna);
 
 }

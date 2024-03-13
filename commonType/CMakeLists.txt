@@ -59,14 +59,17 @@ add_message_files(
   UnityImage.msg
   APPGripConfig.msg
   APPGripMessage.msg
+  RobotControl.msg
 )
 
 # Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   APPGripConfig.srv
-#   APPScalingConfig.srv
-# )
+add_service_files(
+  FILES
+  # APPGripConfig.srv
+  # APPScalingConfig.srv
+  APP_LLM.srv
+  APP_LLM_Algo.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(

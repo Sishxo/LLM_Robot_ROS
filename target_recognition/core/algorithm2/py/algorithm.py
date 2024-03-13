@@ -1,17 +1,24 @@
 import cv2
 import numpy as np
+from yolov5_depend import detect_core
+# from ICP_depend import pose_core
 
 class Algorithm:
     __name = "Algorithm"
 
     def Name(self):
-        name = "algorithm-py0"
+        name = "algorithm-py2"
         return name
 
     def Init(self):
+        self.model = detect_core.model_init()
         return 1
 
     def Do(self, rgbImageData, rgbWidth, rgbHight, rgbChan, depthImageData, depWidth, depHight, depChan, objectID):
+
+        detect_res = detect_core.run(rgbImageData,self.model)
+        
+        # est_pose = pose_core.run(rgbImageData,depthImageData,detect_res)
         # your function
         self.x = 1
         self.y = 1
