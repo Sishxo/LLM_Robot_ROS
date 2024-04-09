@@ -1,0 +1,19 @@
+# configure the tool modbus communication baud rate, in bps:
+int32 confirm_ID
+# configure the timeout parameter in modbus communication, in milliseconds
+string message
+# 
+interfaceControl[] control 
+
+uint8 ActionType 
+# 0代表指定物品，算法自动规划路线，抓取，识别顺序，读取TargetObjectName和TargetObjectID
+# 1代表移动到TargetPos中的位置，读取TargetPosName和TargetPosID
+# 2代表检测视野范围内的TargetObject并抓取，读取TargetObjectName和TargetObjectID
+# 3代表前往TargetPos中的位置，并放下物品，读取TargetPosName和TargetPosID
+# 4代表前往TargetPos中的位置，并抓取TargetObject的物体，读取TargetPosName和TargetPosID、TargetObjectName和TargetObjectID
+# 5代表无指令的对话，只需要读取LLM_response即可
+
+---
+
+string message
+int16 ret

@@ -1,3 +1,15 @@
 <launch>
-    <node pkg="AppInterfaceAnalysis" type="main_AppAnalysis.py" name="AppAnalysis_node" output="screen"/>
+
+    <!-- <node name="my_service_server" pkg="AppInterfaceAnalysis" type="AppInterface_pro_test" output="screen">
+   </node> -->
+   
+     <node pkg="AppInterfaceAnalysis" type="main_AppAnalysis.py" name="AppAnalysis_node" output="screen"/>
+
+   <node name="AppInterfaceAnalysis_node" pkg="AppInterfaceAnalysis" type="AppInterface_pro" output="screen">
+        <rosparam file="$(find AppInterfaceAnalysis)/config/config.yaml" command="load"/>
+   </node>
+
+
+
+
 </launch>

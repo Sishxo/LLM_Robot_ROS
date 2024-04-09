@@ -59,7 +59,10 @@ add_message_files(
   UnityImage.msg
   APPGripConfig.msg
   APPGripMessage.msg
-  RobotControl.msg
+  RobotControl.msg 
+  interfaceControl.msg
+  VehicleCurrentState.msg
+  XarmGripCurrentState.msg
 )
 
 # Generate services in the 'srv' folder
@@ -69,6 +72,10 @@ add_service_files(
   # APPScalingConfig.srv
   APP_LLM.srv
   APP_LLM_Algo.srv
+  interfaceAnalysisControl.srv
+  # VehicleCurrentState.srv
+  # XarmGripCurrentState.srv
+  MachineControl.srv
 )
 
 ## Generate actions in the 'action' folder

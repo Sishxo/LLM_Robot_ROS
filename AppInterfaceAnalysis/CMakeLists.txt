@@ -257,3 +257,18 @@ target_link_libraries(AppInterface_pro
 )
 
 
+set(AppInterface_SOURCE_FILES_test
+  #主函数
+  ${PROJECT_SOURCE_DIR}/src/main_AppAnalysis_test.cpp
+)
+
+add_executable(AppInterface_pro_test
+  ${AppInterface_SOURCE_FILES_test} 
+)
+add_dependencies(AppInterface_pro_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(AppInterface_pro_test
+  ${catkin_LIBRARIES}
+  # yaml-cpp
+)
+
+

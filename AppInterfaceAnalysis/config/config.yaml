@@ -3,3 +3,6 @@ Rostopic:
  ROBOT_CONTROL_topic : RobotControl_topic
  APP_LLM_Algo_topic : APP_LLM_Algo_topic
  rosloop_rate : 100
+
+TEST:
+ RQT_TEST : 1

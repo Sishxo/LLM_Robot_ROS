@@ -9,7 +9,6 @@ import numpy as np
 from utils.augmentations import letterbox
 
 import json
-import time
 
 from utils.general import (
     check_img_size,
@@ -39,7 +38,6 @@ def model_init(
 ):
     device = select_device(device)
     model = DetectMultiBackend(weights, device=device, dnn=False, data=data, fp16=False)
-    print(type(model))
     return model
 
 @smart_inference_mode()
@@ -91,10 +89,15 @@ def run(
 if __name__=='__main__':
     import cv2
     image = cv2.imread('/home/orin1/data/yolov5/data/images/test.jpg')
-    init_start=time.time()
+
     model=model_init()
-    init_end=time.time()
-    print(init_end-init_start)
-    run(model,image)
-    run_end=time.time()
-    print(run_end-init_end)
+
+    detect_res=run(image,model)
+    res_json = json.loads(detect_res)
+    res_json[1]['object_id']=1
+
+    detected_items = [obj for obj in res_json if obj['object_id']==11]
+
+    if detected_items:
+        res = max(detected_items,key=lambda x:x['conf'])
+        print(res)

@@ -3,3 +3,6 @@ target_recognition/core/algorithm0/*
 .rosinstall
 .rosinstall.bak
 target_recognition/core/algorithm1/cpp/cfg/*
+target_recognition/core/algorithm2/py/ICP_depend/build
+__pycache__
+CAD_model_full/

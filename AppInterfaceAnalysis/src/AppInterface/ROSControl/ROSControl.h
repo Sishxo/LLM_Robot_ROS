@@ -2,6 +2,7 @@
 #define ROSCONTROL_H_
 
 #include "common.h"
+#include "commonType/interfaceAnalysisControl.h"
 
 /// @brief 
 class ROSControl
@@ -31,7 +32,8 @@ public:
     /// @param msg 请求内容
     /// @param data 结果
     /// @return true表示成功，false表示失败
-    bool LLM_Algo_Service(std::string msg, struct LLM_str &data);
+    bool LLM_Algo_Service(std::string msg, std::vector<commonType::interfaceControl> &data, std::string &response, uint8_t &action_type);
+    bool sendServiceDispach(commonType::interfaceAnalysisControl& data);
     
 private:
     ros::NodeHandle Node_;
@@ -41,6 +43,8 @@ private:
     ros::Publisher  PubRobotControlMessage_;
     //llm算法服务
     ros::ServiceClient serviceLLM_Algo_;
+
+    ros::ServiceClient serviceDispach_;
 
 private:
     /// @brief APP发送的大模型请求服务回调函数

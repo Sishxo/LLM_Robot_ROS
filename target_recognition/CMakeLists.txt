@@ -19,6 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(OpenCV REQUIRED)
+find_package(PCL 1.10 REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 
 # find_package(pybind11 REQUIRED)
@@ -130,6 +132,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
 )
 
 include_directories(${OpenCV_INCLUDE_DIRS}) 
@@ -246,6 +249,8 @@ set(TARGET_SOURCE_FILES
   ${PROJECT_SOURCE_DIR}/core/algorithm1/py/target_recognition_algorithmPY1.cpp
   ${PROJECT_SOURCE_DIR}/core/algorithm2/py/target_recognition_algorithmPY2.cpp
   ${PROJECT_SOURCE_DIR}/core/algorithm3/py/target_recognition_algorithmPY3.cpp
+
+  ${PROJECT_SOURCE_DIR}/core/algorithm2/py/ICP_depend/arm_pose_estimation_final.cpp
 )
 
 set(ALGORITHM_PY0 ${PROJECT_SOURCE_DIR}/core/algorithm0/py/)
@@ -259,12 +264,16 @@ configure_file(${PROJECT_SOURCE_DIR}/py.h.in ${PROJECT_SOURCE_DIR}/src/py.h)
 add_executable(target_reognition
   ${TARGET_SOURCE_FILES} 
 )
-# 包含静态库路径
-link_directories(${PROJECT_SOURCE_DIR}/core/algorithm1/cpp/lib)
+# # 包含静态库路径
+# link_directories(${PROJECT_SOURCE_DIR}/core/algorithm2/py/lib)
 
 add_dependencies(target_reognition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(target_reognition
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
+  ${PCL_LIBRARIES}
+  ${PCL_COMMON_LIBRARIES}
+  boost_thread 
+  Eigen3::Eigen
   pybind11::embed
 )

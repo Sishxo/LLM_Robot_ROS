@@ -2,6 +2,7 @@
 #define APP_H_
 
 #include "common.h"
+#include "commonType/interfaceAnalysisControl.h"
 
 class APP
 {
@@ -24,6 +25,10 @@ public:
     void End();
 
 public:
+    /// @brief 对大模型发送的信息进行清空复位
+    /// @param req 请求
+    /// @param res 发送
+    bool APP_ROSResponse_Reset(commonType::APP_LLM::Request &req,commonType::APP_LLM::Response& res);
     /// @brief 对大模型发送的信息进行初级处理
     /// @param req 请求
     /// @param res 发送
@@ -32,17 +37,23 @@ public:
     /// @param req 请求
     /// @param res 发送
     /// @param LLM_Data 处理结果
-    bool APP_ROSResponse_FirstConfirm(commonType::APP_LLM::Request &req,commonType::APP_LLM::Response& res, struct LLM_str &LLM_Data);
+    bool APP_ROSResponse_FirstConfirm(commonType::APP_LLM::Request &req,commonType::APP_LLM::Response& res);
     /// @brief 对大模型发送的信息进行第二次确定处理
     /// @param req 请求
     /// @param res 发送
     /// @param LLM_Data 处理结果
-    bool APP_ROSResponse_SecondConfirm(commonType::APP_LLM::Request &req,commonType::APP_LLM::Response& res, struct LLM_str &LLM_Data);
+    bool APP_ROSResponse_SecondConfirm(commonType::APP_LLM::Request &req,commonType::APP_LLM::Response& res);
     /// @brief 将LLM_Data 转为commonType::RobotControl
     /// @param LLM_Data 
     /// @param control 
     void getRobotControlMsg(struct LLM_str &LLM_Data, commonType::RobotControl& control);
+    /// @brief 信息调度Callback
+    /// @param LLM_Data 
+    /// @param control 
+    bool APPServiceLLMCallback(commonType::APP_LLM::Request  &req, commonType::APP_LLM::Response &res);
 private:
+    /// @brief　储存经过LLM处理的指令vector
+    std::vector<commonType::interfaceControl> first_LLM_Data_;
     /// @brief 存储每次有效app发送过来的叠加信息
     std::string AllAPPMessage_;
     /// @brief 预处理,将每次接收到的请求信息进行组包

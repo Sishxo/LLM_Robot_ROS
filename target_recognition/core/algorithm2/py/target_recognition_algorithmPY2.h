@@ -9,6 +9,7 @@
 #include <numpy/arrayobject.h>
 #include <opencv2/opencv.hpp>
 #include <pybind11/numpy.h>
+#include <ICP_depend/arm_pose_estimation_final.h>
 
 namespace Target_Recognition
 {
@@ -33,10 +34,12 @@ namespace Target_Recognition
             /// @brief 获取当前硬件平台的名称
             /// @return 返回当前硬件平台的名称
             int ErrorDetect();
+
+            DetectionResult getDetectionResult();
         
         private:
             pybind11::array mat_to_array(cv::Mat &mat);
-            ImageTarget getData();
+            ImageTarget getData(Eigen::Matrix3f &rotation_matrix, Eigen::Vector3f &translation, int objectID, std::string objectName);
 
         private:
             pybind11::object Algorithm;

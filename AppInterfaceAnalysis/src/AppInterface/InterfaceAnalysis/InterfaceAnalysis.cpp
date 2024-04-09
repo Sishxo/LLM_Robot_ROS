@@ -19,7 +19,7 @@ InterfaceAnalysis::~InterfaceAnalysis()
 /// @brief 初始化
 void InterfaceAnalysis::Init()
 {
-    ROSControl::Instance().Init();
+    // ROSControl::Instance().Init();
 }
 /// @brief 开始
 void InterfaceAnalysis::Start()

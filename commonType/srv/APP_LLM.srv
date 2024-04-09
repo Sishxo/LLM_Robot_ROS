@@ -1,10 +1,18 @@
-# configure the tool modbus communication baud rate, in bps:
+# 用户返回的确认信息，０表示用户否认了解析结果
 int32 confirm_ID
 
 # configure the timeout parameter in modbus communication, in milliseconds
 string message
 
+# 
+interfaceControl[] control 
+
 ---
 
+uint8 ActionType
 string message
+interfaceControl[] control 
 int16 ret
+
+# To identify if this is a response including instruction
+bool command

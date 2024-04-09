@@ -6,6 +6,7 @@ void YamlConfig::Init() {
     out.ROBOT_CONTROL_TOPIC = getParam<std::string>("/AppInterfaceAnalysis_node/Rostopic/ROBOT_CONTROL_topic","RobotControl_Mesg");;// "APP_LLM_Mesg"
     out.rosloop_rate = getParam<int>("/AppInterfaceAnalysis_node/Rostopic/rosloop_rate",100);//100
     out.APP_LLM_Algo_TOPIC = getParam<std::string>("/AppInterfaceAnalysis_node/Rostopic/APP_LLM_Algo_topic","APP_LLM_Algo_topic");
+    out.rqt_test =  getParam<int>("/AppInterfaceAnalysis_node/TEST/RQT_TEST",0);
 }
 
 
